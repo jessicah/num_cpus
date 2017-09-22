@@ -295,7 +295,8 @@ fn get_num_cpus() -> usize {
     target_os = "ios",
     target_os = "android",
     target_os = "solaris",
-    target_os = "fuchsia")
+    target_os = "fuchsia",
+    target_os = "haiku")
 )]
 fn get_num_cpus() -> usize {
     // On ARM targets, processors could be turned off to save power.
@@ -313,7 +314,7 @@ fn get_num_cpus() -> usize {
     }
 }
 
-#[cfg(any(target_os = "emscripten", target_os = "redox", target_os = "haiku"))]
+#[cfg(any(target_os = "emscripten", target_os = "redox"))]
 fn get_num_cpus() -> usize {
     1
 }
